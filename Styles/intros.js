@@ -25,8 +25,8 @@ export default StyleSheet.create({
     width: 200,
   },
   genders:{
-    height: 18,
-    width: 100,
+    flex: 1,
+    width: 120,
   },
   button:{
     height: 30,

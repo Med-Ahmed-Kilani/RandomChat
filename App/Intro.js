@@ -3,20 +3,18 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {View, Image, Text, TextInput, Button} from 'react-native';
-import RadioButtonRN from 'radio-buttons-react-native';
+import { CheckBox } from 'react-native-elements';
 import intros from '../Styles/intros';
 
-const data = [
-  {
-    label: '  Male',
-   },
-   {
-    label: '  Female',
-   },
-  ];
-
-export default class Intro extends Component {
-  render() {
+export default class Intro extends Component  {
+  constructor(props){
+    super(props)
+    this.state = {
+      checked:true,
+      unchecked:false,
+    }
+  }
+  render(){
     return (
       <View style={{backgroundColor: 'white', flex:1}}>
         <View style={intros.card}>
@@ -24,7 +22,7 @@ export default class Intro extends Component {
         </View>
         <View style={intros.loginForm}>
             <Text style={intros.headers}>
-              Hey you!!!
+              UserName
             </Text>
             <TextInput style={intros.inputs} placeholder="Your User Name Please!" />
             <Text style={intros.headers}>
@@ -35,9 +33,19 @@ export default class Intro extends Component {
               Gender !
             </Text>
             <View style={intros.genders}>
-              <RadioButtonRN
-                data={data}
-                selectedBtn={(e) => console.log(e)}
+              <CheckBox
+                center
+                title='Male'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={this.state.checked}
+              />
+              <CheckBox
+                center
+                title='Female'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={this.state.unchecked}
               />
             </View>
             <Button style={intros.button} title="start"/>
